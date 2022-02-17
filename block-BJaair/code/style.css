@@ -1,0 +1,49 @@
+header {
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+li{
+  list-style: none;
+  border: 2px solid black;
+  width: 15rem;
+  text-align: center;
+ margin: 1rem;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.add__card {
+  width: 50%;
+    margin: 0 auto;
+    margin-top: 10rem;
+    border: 2px solid black;
+    padding: 1rem 1rem;
+
+}
+
+input {
+  width: 95%;
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+    border: 1px solid black;
+}
+::placeholder { 
+  color: gray;
+  opacity: 1; 
+}
+button{
+  padding: 1rem;
+    text-align: center;
+    width: 100%;
+    margin-top: 2rem;
+    outline: none;
+    border: none;
+    background-color: black;
+    color: rgb(248, 242, 245);
+}
