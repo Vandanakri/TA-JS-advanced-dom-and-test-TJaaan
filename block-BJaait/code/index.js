@@ -1,104 +1,69 @@
-let items = document.querySelectorAll('.container .box');
-  items.forEach(function(item) {
-    item.addEventListener('dragstart', handleDragStart);
-    item.addEventListener('dragover', handleDragOver);
-    item.addEventListener('dragenter', handleDragEnter);
-    item.addEventListener('dragleave', handleDragLeave);
-    item.addEventListener('dragend', handleDragEnd);
-    item.addEventListener('drop', handleDrop);
-  });
+let form = document.querySelector('#form');
+let draggables = document.getElementsByClassName("draggable");
+let display = document.querySelector('.display');
 
-  
-  function handleDragStart(e) {
-    this.style.opacity = '0.4';
-  }
-  
-  function handleDragEnd(e) {
-    this.style.opacity = '1';
-  }
-  
-  let items = document.querySelectorAll('.container .box');
-  items.forEach(function (item) {
-    item.addEventListener('dragstart', handleDragStart);
-    item.addEventListener('dragend', handleDragEnd);
-  });
+form.addEventListener("submit", (event)=>{
+    event.preventDefault();
+    let title = document.querySelector('#title').value;
+    createUI(title);
+})
 
 
-  
+function createUI(title){
+    document.querySelector("#title").value ="";
+    let li = document.createElement('li');
+    li.innerText =title;
+    li.style.fontSize = "1.5rem";
+    let p = document.createElement('p');
+    p.classList.add("dragMe");
+    p.innerText = "dragMe";
+    p.style.color = "green";
+    p.style.fontSize = "0.8rem";
+    li.setAttribute("draggable", "true");
+    li.setAttribute("class", "draggable");
+    li.append(p);
+    display.append(li);
+    console.log(draggables);
+    [...draggables].forEach((draggable) => {
+        draggable.addEventListener("dragstart", () => {
+        draggable.classList.add("dragging");
+        });
 
-
-  document.addEventListener('DOMContentLoaded', (event) => {
-  
-    function handleDragStart(e) {
-      this.style.opacity = '0.4';
-    }
-  
-    function handleDragEnd(e) {
-      this.style.opacity = '1';
-  
-      items.forEach(function (item) {
-        item.classList.remove('over');
-      });
-    }
-  
-    function handleDragOver(e) {
-      if (e.preventDefault) {
-        e.preventDefault();
-      }
-  
-      return false;
-    }
-  
-    function handleDragEnter(e) {
-      this.classList.add('over');
-    }
-  
-    function handleDragLeave(e) {
-      this.classList.remove('over');
-    }
-  
-    let items = document.querySelectorAll('.container .box');
-    items.forEach(function(item) {
-      item.addEventListener('dragstart', handleDragStart);
-      item.addEventListener('dragover', handleDragOver);
-      item.addEventListener('dragenter', handleDragEnter);
-      item.addEventListener('dragleave', handleDragLeave);
-      item.addEventListener('dragend', handleDragEnd);
-      item.addEventListener('drop', handleDrop);
+        draggable.addEventListener("dragend", () => {
+        draggable.classList.remove("dragging");
+        });
     });
-  });
+}
+let containers = document.querySelectorAll(".container");
 
-  function handleDrop(e) {
-    e.stopPropagation(); // stops the browser from redirecting.
-    return false;
-  }
+containers.forEach((container)=>{
+    console.log(container);
+    container.addEventListener("dragover",(e)=>{
+        e.preventDefault();
+        const afterElement =getDragAfterElement(container ,e.clientY);
+        const draggable =document.querySelector(".dragging");
+        if(afterElement == null){
+            container.appendChild(draggable);
+        }
+        else {
+            console.log(draggable);
+            container.insertBefore(draggable,afterElement);
+        }
+    })
+})
 
-  function handleDragStart(e) {
-    this.style.opacity = '0.4';
-  
-    dragSrcEl = this;
-  
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', this.innerHTML);
-  }
+function getDragAfterElement(container ,y){
+    const draggableElements =[
+        ...container.querySelectorAll(".draggable:not(.dragging)"),
+    ];
+    return draggableElements.reduce((closest, child)=>{
+        const box =  child.getBoundingClientRect();
+        const offset = y- box.top - box.height /2;
+        if(offset<0 && offset > closest.offset){
+            return {offset:offset ,element :child};
+        }else{
+            return closest;
+        }
+    } ,{ offset: Number.NEGATIVE_INFINITY }).element
+}
 
-  function handleDrop(e) {
-    e.stopPropagation();
-  
-    if (dragSrcEl !== this) {
-      dragSrcEl.innerHTML = this.innerHTML;
-      this.innerHTML = e.dataTransfer.getData('text/html');
-    }
-  
-    return false;
-  }
-
-  function handleDrop(e) {
-    e.stopPropagation(); // Stops some browsers from redirecting.
-    e.preventDefault();
-  
-    var files = e.dataTransfer.files;
-    for (var i = 0, f; (f = files[i]); i++) {
-      // Read the File objects in this FileList.
-    }
-  }
