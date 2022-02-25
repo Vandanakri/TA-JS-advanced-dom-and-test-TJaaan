@@ -18,13 +18,13 @@ test('adds firstName + lastName to equal fullName', () => {
 // Negative
 
 test('adds firstName + lastName to equal fullName', () => {
-  expect(testobj.getFullName("Ashwini" ,"Gupta")).toBe("Ashwini Gupta")
+  expect(testobj.getFullName("Ashwini" ,"Gupta")).not.toBe("Ashwini Gupta")
 });
 test('adds firstName + lastName to equal fullName', () => {
-  expect(testobj.getFullName("Ashwini" ,"Gupta")).toBe("AshwiniGup ta")
+  expect(testobj.getFullName("Ashwini" ,"Gupta")).not.toBe("AshwiniGup ta")
 });
 test('adds firstName + lastName to equal fullName', () => {
-  expect(testobj.getFullName("Ashwini" ,"Gupta")).toBe("As hwiniGupta")
+  expect(testobj.getFullName("Ashwini" ,"Gupta")).not.toBe("As hwiniGupta")
 });
 
 
@@ -32,30 +32,30 @@ test('adds firstName + lastName to equal fullName', () => {
 
 // Positive
 
-test('adds firstName + lastName to equal fullName', () => {
+test('get Palindrome is equal to Palindrome', () => {
   expect(testobj.isPalindrome("vav")).toBe(true)
 });
 
-test('adds firstName + lastName to equal fullName', () => {
+test('get Palindrome is equal to Palindrome', () => {
   expect(testobj.isPalindrome("mam")).toBe(true)
 });
 
-test('adds firstName + lastName to equal fullName', () => {
+test('get Palindrome is equal to Palindrome', () => {
   expect(testobj.isPalindrome("ono")).toBe(true)
 });
 
 // Negative
 
-test('adds firstName + lastName to equal fullName', () => {
-  expect(testobj.isPalindrome("vana")).toBe(true)
+test('get Palindrome is equal to Palindrome', () => {
+  expect(testobj.isPalindrome("vav")).not.toBe(false)
 });
 
-test('adds firstName + lastName to equal fullName', () => {
-  expect(testobj.isPalindrome("madam")).toBe(true)
+test('get Palindrome is equal to Palindrome', () => {
+  expect(testobj.isPalindrome("mam")).not.toBe(false)
 });
 
-test('adds firstName + lastName to equal fullName', () => {
-  expect(testobj.isPalindrome("one")).toBe(true)
+test('get Palindrome is equal to Palindrome', () => {
+  expect(testobj.isPalindrome("ono")).not.toBe(false)
 });
 
 
@@ -63,14 +63,14 @@ test('adds firstName + lastName to equal fullName', () => {
 // Positive
 
 
-test('adds firstName + lastName to equal fullName', () => {
+test('get Circumfrence is equal to Circumfrence ', () => {
   expect(testobj.getCircumfrence(4)).toBe('The circumference is 25.132741228718345')
 });
 
-test('adds firstName + lastName to equal fullName', () => {
+test('get Circumfrence is equal to Circumfrence', () => {
   expect(testobj.getCircumfrence(3)).toBe('The circumference is 18.84955592153876')
 });
-test('adds firstName + lastName to equal fullName', () => {
+test('get Circumfrence is equal to Circumfrence', () => {
   expect(testobj.getCircumfrence(5)).toBe('The circumference is 31.41592653589793')
 });
 
@@ -78,45 +78,45 @@ test('adds firstName + lastName to equal fullName', () => {
 // Negative
 
 
-test('adds firstName + lastName to equal fullName', () => {
-  expect(testobj.getCircumfrence(3)).toBe('The circumference is 25.132741228718345')
+test('get Circumfrence is equal to Circumfrence', () => {
+  expect(testobj.getCircumfrence(3)).not.toBe('The circumference is 25.132741228718345')
 });
 
-test('adds firstName + lastName to equal fullName', () => {
-  expect(testobj.getCircumfrence(4)).toBe('The circumference is 18.84955592153876')
+test('get Circumfrence is equal to Circumfrence', () => {
+  expect(testobj.getCircumfrence(4)).not.toBe('The circumference is 18.84955592153876')
 });
-test('adds firstName + lastName to equal fullName', () => {
-  expect(testobj.getCircumfrence(2)).toBe('The circumference is 31.41592653589793')
+test('get Circumfrence is equal to Circumfrence', () => {
+  expect(testobj.getCircumfrence(2)).not.toBe('The circumference is 31.41592653589793')
 });
 
 
 
 // Positive
 
-test('adds firstName + lastName to equal fullName', () => {
+test('get Area is equal to Area', () => {
   expect(testobj.getArea(4)).toBe('The area is 50.26548245743669')
 });
 
-test('adds firstName + lastName to equal fullName', () => {
+test('get Area is equal to Area', () => {
   expect(testobj.getArea(3)).toBe('The area is 28.274333882308138')
 });
 
-test('adds firstName + lastName to equal fullName', () => {
+test('get Area is equal to Area', () => {
   expect(testobj.getArea(6)).toBe('The area is 113.09733552923255')
 });
 
 // Negative
 
-test('adds firstName + lastName to equal fullName', () => {
-  expect(testobj.getArea(3)).toBe('The area is 50.26548245743669')
+test('get Area is equal to Area', () => {
+  expect(testobj.getArea(3)).not.toBe('The area is 50.26548245743669')
 });
 
-test('adds firstName + lastName to equal fullName', () => {
-  expect(testobj.getArea(4)).toBe('The area is 28.274333882308138')
+test('get Area is equal to Area', () => {
+  expect(testobj.getArea(4)).not.toBe('The area is 28.274333882308138')
 });
 
-test('adds firstName + lastName to equal fullName', () => {
-  expect(testobj.getArea(5)).toBe('The area is 113.09733552923255')
+test('get Area is equal to Area', () => {
+  expect(testobj.getArea(5)).not.toBe('The area is 113.09733552923255')
 });
 
 

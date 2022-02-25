@@ -17,7 +17,7 @@ function getCircumfrence(radius) {
 }
 
 function getArea(radiusOfArea){
- return `The area is ${Math.PI * radiusOfArea * radiusOfArea} `
+ return `The area is ${Math.PI * radiusOfArea * radiusOfArea}`
 
 }
 
